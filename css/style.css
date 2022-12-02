@@ -1,0 +1,252 @@
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+/*begin of total*/
+html, body, .page {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+  transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+  -webkit-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+  -moz-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+  -o-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);  
+  overflow: hidden; 
+}
+h1 {
+ font-weight: 800;
+ font-size: 2.5em;
+ color: #000;
+}
+
+p {
+ font-size: 1em;
+ color: #000;
+}
+
+a {
+  text-decoration: none;
+}
+
+#menu {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  height: 280px;
+  width: 10%;
+  padding: 0;
+  text-align: center;
+}
+/*end of total*/
+
+/*begin of 5 pages*/
+.page {
+  position: absolute;
+}
+#p1 {
+  left: 0;
+}
+#p4 {
+  top: 0;  
+  bottom:0;  
+  position:fixed;  
+  overflow-y:scroll;  
+  overflow-x:hidden; 
+}
+#p2, #p3, #p4, #p5 {
+  left: 200%;
+  opacity: 0;
+}
+#p1, #p2, #p3, #p4, #p5 {
+    transition: all .5s ease-out !important;
+}
+#p1 { background: #F9F7E8; }
+#p2 { background: white; }
+#p3 { background: white; }
+#p4 { background: white; }
+#p5 { background: white; }
+#t2:target #p2,
+#t3:target #p3,
+#t4:target #p4,
+#t5:target #p5 {
+  transform: translateX(-190%);
+  -webkit-transform: translateX(-190%);
+  -moz-transform: translateX(-190%);
+  -o-transform: translateX(-190%);
+  transition-delay: .4s !important;
+}
+#t2:target #p1, 
+#t3:target #p1,
+#t4:target #p1,
+#t5:target #p1{
+  background: black;
+}
+#t2:target #Parallax-content, 
+#t3:target #Parallax-content,
+#t4:target #Parallax-content,
+#t5:target #Parallax-content{
+  opacity: 0.2;
+}
+
+#t2:target #p1 .icon, 
+#t3:target #p1 .icon,
+#t4:target #p1 .icon,
+#t5:target #p1 .icon {
+  -webkit-filter: blur(3px);
+}
+
+#t4:target #nav__content-p4{
+  display: block;
+}
+#t1:target #nav__content-p4
+#t2:target #nav__content-p4
+#t3:target #nav__content-p4
+#t5:target #nav__content-p4{
+  display: none;
+}
+
+.icon {
+  color: #fff;
+  font-size: 32px;
+  display: block;
+}
+
+ul .icon:hover {
+  opacity: 0.2;
+}
+
+.page .icon .title {
+  line-height: 2;
+}
+
+#t2:target ul .icon,
+#t3:target ul .icon,
+#t4:target ul .icon,
+#t5:target ul .icon{
+  transform: scale(.6);
+  -webkit-transform: scale(.6);
+  -moz-transform: scale(.6);
+  -o-transform: scale(.6);
+  transition-delay: .25s;
+}
+
+#t2:target #dos,
+#t3:target #tres,
+#t4:target #cuatro,
+#t4:target #cinco {
+  transform: scale(1.2) !important;
+  -webkit-transform: scale(1.2) !important;
+  -moz-transform: scale(1.2) !important;
+  -o-transform: scale(1.2) !important;
+}
+
+#t2:target #p2{
+  opacity: 1;
+}
+#t3:target #p3{
+  opacity: 1;
+}
+#t4:target #p4{
+  opacity: 1;
+}
+#t5:target #p5{
+  opacity: 1;
+}
+
+#menu .icon {
+  margin: 30px 0;
+  transition: all .5s ease-out !important;
+  -webkit-transition: all .5s ease-out;
+  -moz-transition: all .5s ease-out;
+  -o-transition: all .5s ease-out;
+}
+
+/*end of 5 pages*/
+
+/*begin of bg*/
+#Parallax-content {
+ padding: 1em 2em;
+ background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/bg-133936.jpg);
+ background-size: 1920px;
+ height: 100vh;
+ background-repeat: no-repeat;
+ transition: all .5s ease-out !important;
+}
+.card {
+ text-align: center;
+ width: 500px;
+ height: 350px;
+ margin: 0 auto;
+ border-radius: 0.2em;
+ padding: 1em;
+ overflow: hidden;
+ padding-top: 1em;
+}
+.inner-card {
+ margin-top: 20%;
+}
+
+.container-text {
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.text {
+  text-transform: uppercase;
+  z-index: 100;
+  text-shadow: .04em .04em 0 #9cb8b3;
+  font-weight: 900;
+  font-size: 60px;
+  color: #757575;
+  letter-spacing:10px;
+  word-spacing:20px
+  opacity: 0.6;
+}
+.dud {
+  color: #757575;
+  opacity: 0.3;
+}
+
+
+/*end of bg*/
+
+
+
+.title, .hint {
+  display: block;
+}
+
+.title {
+  font-size: 38px;
+}
+
+.hint {
+  font-size: 13px;
+}
+
+#p4 .hint {
+  display: inherit !important;
+}
+
+.hint a {
+  color: yellow;
+  transition: all 250ms ease-out;
+  -webkit-transition: all 250ms ease-out;
+  -moz-transition: all 250ms ease-out;
+  -o-transition: all 250ms ease-out;
+}
+
+.hint a:hover {
+  color: #FFF;
+}
+
+.line-trough {
+  text-decoration: line-through;
+}
+
+/*begin of contact*/
+/*end of contact*/

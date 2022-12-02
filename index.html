@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>MEMORY</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css'>
+  <link rel='stylesheet prefetch' href='http://storage.googleapis.com/code.getmdl.io/1.0.5/material.indigo-pink.min.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300'>
+  <link rel="stylesheet" ref="https://fonts.googleapis.com/css?family=Fira+Sans:200,300,400,500">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/paint.css">
+  <link rel="stylesheet" href="css/game.css">
+  <link rel="stylesheet" href="css/display.css">
+  <style>
+    .icon-text{font-size: 10px;margin: -25px 0 0 0;color: white; font-weight: 10;}
+  </style>
+</head>
+<body>
+  <div class="ct" id="t1">
+    <div class="ct" id="t2">
+      <div class="ct" id="t3">
+        <div class="ct" id="t4">
+         <div class="ct" id="t5">
+          <!-- begin of menu -->
+          <ul id="menu">
+            <a href="#t1" onclick="t1()"><li class="icon fa fa-bolt" id="uno"></li><p class="icon-text">Home</p></a>
+            <a href="#t2" onclick="t2()"><li class="icon fa fa-keyboard-o" id="dos"></li><p class="icon-text">Paint</p></a>
+            <a href="#t3" onclick="t3()"><li class="icon fa fa-dribbble" id="tres"></li><p class="icon-text">Game</p></a>
+            <a href="#t4" onclick="t4()"><li class="icon fa fa-rocket" id="cuatro"></li><p class="icon-text">Gallery</p></a>
+            <!-- <a href="#t5" onclick="t5()"><li class="icon fa fa-plus-circle" id="cinco"></li></a> -->
+          </ul>
+          <!-- end of menu -->
+          <!-- begin of p1 -->
+          <div class="page" id="p1">
+            <div id="Parallax-content">
+              <section class="card">
+                <div class="container-text">
+                  <div class="text"></div>
+                </div>
+              </section>
+            </div>
+          </div>
+          <!-- end of p1 -->
+
+          <!-- begin of p2 -->
+          <div class="page" id="p2">
+
+            <!-- begin of painting -->
+            <div class="bg-img"></div>
+            <canvas id="canvas"></canvas>
+            <nav class="tools-bar">
+              <div class="buttonoo" style="font-size:1.8em; color:grey; opacity:0.7;" data-save id="save-icon">
+                <i class="fa fa-save" data-fa-transform="shrink-8" ></i>
+              </div>
+              <div class="buttonoo" style="font-size:1.8em; color:grey; opacity:0.7;" data-clear>
+                <i class="fa fa-trash" data-fa-transform="shrink-8" ></i>
+              </div>
+              <div class="buttonoo" style="font-size:1.8em; color:grey; opacity:0.7;" data-redraw>
+                <i class="fa fa-eraser" data-fa-transform="shrink-8" ></i>
+              </div>
+            </nav>
+            <nav class="thickness-bar">
+              <div class="thickness" data-thickness="4"></div>
+              <div class="thickness" data-thickness="12"></div>
+              <div class="thickness active" data-thickness="24"></div>
+              <div class="thickness" data-thickness="48"></div>
+              <div class="thickness" data-thickness="128"></div>
+            </nav>
+            <nav class="color-bar">
+              <div class="color" data-color="#9b59b6"></div>
+              <div class="color" data-color="#3498db"></div>
+              <div class="color" data-color="#2ecc71"></div>
+              <div class="color active" data-color="#A5BDBD"></div>
+              <div class="color" data-color="#f1c40f"></div>
+              <div class="color" data-color="#e67e22"></div>
+              <div class="color" data-color="#E73C61"></div>
+            </nav>
+            <!-- end of painting -->
+
+            <!-- begin of save -->
+            <div id="overlay"></div>
+            <div class="fab">
+              <form class='cntt-wrapper'>
+                <div id="fab-hdr">
+                  <h3 id="save-res">SAVE</h3>
+                </div>
+                <div class="cntt">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="password-input">
+                    <input class="mdl-textfield__input" type="text" id="text0" />
+                    <label class="mdl-textfield__label" for="text2" id="label0">Password (If you don't have, click get...)</label>
+                  </div>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="text1" />
+                    <label class="mdl-textfield__label" for="text2">For...</label>
+                  </div>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="text2" />
+                    <label class="mdl-textfield__label" for="text2">Note...</label>
+                  </div>
+                </div>
+                <div class="btn-wrapper">
+                  <button class="mdl-button mdl-js-button" id="get-pass">Get Password</button>
+                  <button class="mdl-button mdl-js-button" id="cancel">Cancel</button>
+                  <button class="mdl-button mdl-js-button mdl-button--primary" id="submit">Submit</button>
+                </div>
+              </form>
+            </div>
+            <!-- end of save -->
+
+          </div> 
+          <!-- end of p2 -->
+
+          <!-- begin of p3 -->
+          <div class="page" id="p3">
+
+            <!-- begin of gaming -->
+            <div id="overlay3"></div>
+            <div class="countingdiv" id="counting">
+              <div class="countingdiv" id="photos">0</div>
+              <div class="countingdiv" id="scores">0</div>
+              <div class="countingdiv" id="screte">click me</div>
+            </div>
+            <div id="instructions">Click (or press the spacebar) to place the block</div>
+            <div id="okNumberID"></div>
+            <div id="start">Start</div>
+            <div id="viewport">
+              <div id="scene">
+                <div id="base"></div>
+                <div id="blocks"></div>
+              </div>
+            </div>
+            <!-- end of gaming -->
+
+            <!-- begin of menu icon -->
+            <div class="menu-icon">
+              <span class="menu-icon__line menu-icon__line-left"></span>
+              <span class="menu-icon__line"></span>
+              <span class="menu-icon__line menu-icon__line-right"></span>
+            </div>
+            <!-- end of menu icon -->
+
+            <!-- begin of password entry -->
+            <div class="nav">
+              <div class="nav__content" id="nav__content">
+                <ul class="nav__list">
+                  <li class="nav__list-item">
+
+                    <!-- begin of eye -->
+                    <div class="password">
+                      <input type="checkbox" class="password--visibleToggle" checked>
+                      <div class="password--background"></div>
+                      <div class="password--visibleToggle-eye open">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/138980/eye-open.png" />
+                      </div>
+                      <div class="password--visibleToggle-eye close">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/138980/eye-close.png" />
+                      </div>
+                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 30.221 30.221" style="enable-background:new 0 0 30.221 30.221;" xml:space="preserve" class="password--lock">
+
+                        <!-- begin of eye svg -->
+                        <g>
+                          <path d="M25.534,14.457h-1.529V9.361c0-2.541-0.965-4.871-2.555-6.572C19.864,1.09,17.602-0.006,15.11,0
+                          c-2.494-0.006-4.756,1.09-6.34,2.789C7.179,4.49,6.214,6.82,6.214,9.361v5.096H4.683c-0.629,0-1.145,0.512-1.145,1.145v13.471
+                          c0,0.637,0.516,1.148,1.145,1.148h20.852c0.635,0,1.148-0.512,1.148-1.148V15.602C26.683,14.969,26.169,14.457,25.534,14.457z
+                          M10.436,9.361c0-1.465,0.559-2.766,1.42-3.686c0.867-0.922,2-1.453,3.254-1.453c1.252,0,2.385,0.531,3.25,1.453
+                          c0.865,0.92,1.42,2.221,1.42,3.686v5.096h-9.344V9.361z"/>
+                        </g>
+                        <!-- end of eye svg -->
+
+                      </svg>
+                      <input type="text" class="password--input" id="password--input" value="madewithlove"/>
+                    </div>
+                    <!-- end of eye -->
+
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- end of password entry -->
+
+          </div>  
+          <!-- end of p3 -->
+          
+          <!-- begin of p4 -->
+          <div class="page" id="p4">
+            <!-- begin of menu icon -->
+            <div class="menu-icon-p4">
+              <span class="menu-icon__line-p4 menu-icon__line-left-p4"></span>
+              <span class="menu-icon__line-p4"></span>
+              <span class="menu-icon__line-p4 menu-icon__line-right-p4"></span>
+            </div>
+            <!-- end of menu icon -->
+
+            <!-- begin of password entry -->
+            <div class="nav-p4">
+              <div class="nav__content-p4" id="nav__content-p4">
+                <ul class="nav__list-p4">
+                  <li class="nav__list-item-p4">
+                     <!-- begin of eye -->
+                    <div class="password-p4">
+                      <input type="checkbox" class="password--visibleToggle-p4" checked>
+                      <div class="password--background-p4"></div>
+                      <div class="password--visibleToggle-eye-p4 open-p4">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/138980/eye-open.png" />
+                      </div>
+                      <div class="password--visibleToggle-eye-p4 close-p4">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/138980/eye-close.png" />
+                      </div>
+                      <svg version="1.1" id="Capa_1-p4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 30.221 30.221" style="enable-background:new 0 0 30.221 30.221;" xml:space="preserve" class="password--lock">
+
+                        <!-- begin of eye svg -->
+                        <g>
+                          <path d="M25.534,14.457h-1.529V9.361c0-2.541-0.965-4.871-2.555-6.572C19.864,1.09,17.602-0.006,15.11,0
+                          c-2.494-0.006-4.756,1.09-6.34,2.789C7.179,4.49,6.214,6.82,6.214,9.361v5.096H4.683c-0.629,0-1.145,0.512-1.145,1.145v13.471
+                          c0,0.637,0.516,1.148,1.145,1.148h20.852c0.635,0,1.148-0.512,1.148-1.148V15.602C26.683,14.969,26.169,14.457,25.534,14.457z
+                          M10.436,9.361c0-1.465,0.559-2.766,1.42-3.686c0.867-0.922,2-1.453,3.254-1.453c1.252,0,2.385,0.531,3.25,1.453
+                          c0.865,0.92,1.42,2.221,1.42,3.686v5.096h-9.344V9.361z"/>
+                        </g>
+                        <!-- end of eye svg -->
+
+                      </svg>
+                      <input type="text" class="password--input-p4" id="password--input-p4" value="madewithlove"/>
+                    </div>
+                    <!-- end of eye -->
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <header class="header container">
+              <h1 class="pen__heading">OUR<br>MEMORY</h1>
+              <br>
+              <h4 class="pen__subheading" id="pen__subheading">TO: YOU</h4>
+            </header>
+            <main class="main container">
+              <div class="col col--full">
+                <div class="block--split-image block--split-image-1">
+                  <div class="block__content">
+                    <h2>
+                      Chillwave Lo-Fi Coffee<br>
+                      <small>(hover me)</small>
+                    </h2>
+                  </div>
+                  <div class="block__image" data-orbit>
+                    <div class="part part-1"></div>
+                    <div class="part part-2"></div>
+                    <div class="part part-3"></div>
+                    <div class="part part-4"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col col--full">
+                <div class="block--split-image block--split-image-2">
+                  <div class="block__content">
+                    <h2>
+                      Retro Fingerstache<br>
+                      <small>(hover me)</small>
+                    </h2>
+                  </div>
+                  <div class="block__image" data-orbit>
+                    <div class="part part-1"></div>
+                    <div class="part part-2"></div>
+                    <div class="part part-3"></div>
+                    <div class="part part-4"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col col--full">
+                <div class="block--split-image block--split-image-3">
+                  <div class="block__content">
+                    <h2>
+                      Gluten-Free Mixtape<br>
+                      <small>(hover me)</small>
+                    </h2>
+                  </div>
+                  <div class="block__image" data-orbit>
+                    <div class="part part-1"></div>
+                    <div class="part part-2"></div>
+                    <div class="part part-3"></div>
+                    <div class="part part-4"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col col--full">
+                <div class="block--split-image block--split-image-4">
+                  <div class="block__content">
+                    <h2>
+                      Typewriter Mumblecore<br>
+                      <small>(hover me)</small>
+                    </h2>
+                  </div>
+                  <div class="block__image" data-orbit>
+                    <div class="part part-1"></div>
+                    <div class="part part-2"></div>
+                    <div class="part part-3"></div>
+                    <div class="part part-4"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col col--full">
+                <div class="block--split-image block--split-image-5">
+                  <div class="block__content">
+                    <h2>
+                      Chillwave Lo-Fi Coffee<br>
+                      <small>(hover me)</small>
+                    </h2>
+                  </div>
+                  <div class="block__image" data-orbit>
+                    <div class="part part-1"></div>
+                    <div class="part part-2"></div>
+                    <div class="part part-3"></div>
+                    <div class="part part-4"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col col--full">
+                <div class="block--split-image block--split-image-6">
+                  <div class="block__content">
+                    <h2>
+                      Retro Fingerstache<br>
+                      <small>(hover me)</small>
+                    </h2>
+                  </div>
+                  <div class="block__image" data-orbit>
+                    <div class="part part-1"></div>
+                    <div class="part part-2"></div>
+                    <div class="part part-3"></div>
+                    <div class="part part-4"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col col--full">
+                <div class="block--split-image block--split-image-7">
+                  <div class="block__content">
+                    <h2>
+                      Gluten-Free Mixtape<br>
+                      <small>(hover me)</small>
+                    </h2>
+                  </div>
+                  <div class="block__image" data-orbit>
+                    <div class="part part-1"></div>
+                    <div class="part part-2"></div>
+                    <div class="part part-3"></div>
+                    <div class="part part-4"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col col--full">
+                <div class="block--split-image block--split-image-8">
+                  <div class="block__content">
+                    <h2>
+                      Typewriter Mumblecore<br>
+                      <small>(hover me)</small>
+                    </h2>
+                  </div>
+                  <div class="block__image" data-orbit>
+                    <div class="part part-1"></div>
+                    <div class="part part-2"></div>
+                    <div class="part part-3"></div>
+                    <div class="part part-4"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col col--full">
+                <div class="block--split-image block--split-image-9">
+                  <div class="block__content">
+                    <h2>
+                      Chillwave Lo-Fi Coffee<br>
+                      <small>(hover me)</small>
+                    </h2>
+                  </div>
+                  <div class="block__image" data-orbit>
+                    <div class="part part-1"></div>
+                    <div class="part part-2"></div>
+                    <div class="part part-3"></div>
+                    <div class="part part-4"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col col--full">
+                <div class="block--split-image block--split-image-10">
+                  <div class="block__content">
+                    <h2>
+                      Retro Fingerstache<br>
+                      <small>(hover me)</small>
+                    </h2>
+                  </div>
+                  <div class="block__image" data-orbit>
+                    <div class="part part-1"></div>
+                    <div class="part part-2"></div>
+                    <div class="part part-3"></div>
+                    <div class="part part-4"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col col--full">
+                <div class="block--split-image block--split-image-11">
+                  <div class="block__content">
+                    <h2>
+                      Gluten-Free Mixtape<br>
+                      <small>(hover me)</small>
+                    </h2>
+                  </div>
+                  <div class="block__image" data-orbit>
+                    <div class="part part-1"></div>
+                    <div class="part part-2"></div>
+                    <div class="part part-3"></div>
+                    <div class="part part-4"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col col--full">
+                <div class="block--split-image block--split-image-12">
+                  <div class="block__content">
+                    <h2>
+                      Typewriter Mumblecore<br>
+                      <small>(hover me)</small>
+                    </h2>
+                  </div>
+                  <div class="block__image" data-orbit>
+                    <div class="part part-1"></div>
+                    <div class="part part-2"></div>
+                    <div class="part part-3"></div>
+                    <div class="part part-4"></div>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+            </main>
+          </div>
+            </main>
+          </div>
+
+          <!-- end of p4 -->
+          
+          <!-- begin of p5 -->
+          <!-- <div class="page" id="p5">
+            <section class="icon fa fa-plus-circle">
+              <span class="title">More</span>
+              <p class="hint">
+                <span>You love one page & CSS only stuff? </span><br/>
+                <a href="https://codepen.io/hrtzt/details/pgXMYb/" target="_blank">check this pen "Pure CSS One page vertical navigation"</a>
+              </p>
+            </section>
+          </div>  -->
+          <!-- end of p5 -->
+
+          <!-- end of all page -->
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='http://storage.googleapis.com/code.getmdl.io/1.0.5/material.min.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/jquery.parallax.js'></script>
+  <script src='js/kzymdn.js'></script>
+  <script src="js/paint.js"></script>
+  <script src="js/display.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
